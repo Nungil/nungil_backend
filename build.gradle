@@ -51,7 +51,8 @@ tasks.named('bootBuildImage') {
 tasks.named('test') {
 	useJUnitPlatform()
 }
-def querydslDir = "$buildDir/generated/querydsl"
+
+def querydslDir = layout.buildDirectory.dir("generated/querydsl").get().asFile
 querydsl {
 	jpa = true
 	querydslSourcesDir = querydslDir

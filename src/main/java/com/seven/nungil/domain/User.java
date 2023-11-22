@@ -28,15 +28,18 @@ public class User {
     private Integer placeCount;
 
     @OneToMany(mappedBy = "user")
-    private List<RecomandedPlace> placeList = new ArrayList<>();
+    private List<RecommendedPlace> placeList = new ArrayList<>();
 
-//    @Builder
-//    public User(String userName, String placeTheme, Float latitude, Float longitude, Integer placeCount, List<RecomandedPlace> placeList){
-//        this.userName = userName;
-//        this.placeTheme = placeTheme;
-//        this.latitude = latitude;
-//        this.longitude = longitude;
-//        this.placeCount = placeCount;
-//        this.placeList = placeList;
-//    }
+    public void plusPlaceCount() {
+        this.placeCount = placeCount + 1;
+    }
+    @Builder
+    public User(String userName, String placeTheme, Float latitude, Float longitude, Integer placeCount, List<RecommendedPlace> placeList){
+        this.userName = userName;
+        this.placeTheme = placeTheme;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.placeCount = placeCount;
+        this.placeList = placeList;
+    }
 }
