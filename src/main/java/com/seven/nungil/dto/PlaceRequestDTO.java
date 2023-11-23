@@ -16,12 +16,17 @@ public class PlaceRequestDTO {
 	@NotNull
 	private Long userId;
 
-	@ApiModelProperty(value = "추천 위치 명", example = "대나무숲")
+	@ApiModelProperty(value = "추천 위치 명(최대 40)", example = "대나무숲")
 	@NotBlank
 	@Size(max=40)
 	private String placeName;
 
-	@ApiModelProperty(value = "추천자", example = "유승한")
+	@ApiModelProperty(value = "추천 위치 주소(최대 40)", example = "부산 기장군 철마면 웅천리 520-10")
+	@NotBlank
+	@Size(max=40)
+	private String address;
+
+	@ApiModelProperty(value = "추천자(최대 50)", example = "유승한")
 	@NotBlank
 	@Size(max=20)
 	private String placeProvider;
@@ -34,16 +39,16 @@ public class PlaceRequestDTO {
 	@NotNull
 	private Float longitude;
 
-	@ApiModelProperty(value = "메시지", example = "너랑 내가 처음 만났던 곳이야")
+	@ApiModelProperty(value = "메시지(최대 200)", example = "너랑 내가 처음 만났던 곳이야")
 	@NotEmpty
-	@Size(min = 1, max = 200)
+	@Size(max = 200)
 	private String placeDescription;
 
-	@ApiModelProperty(value = "퀴즈", example = "너랑 사귄 날")
+	@ApiModelProperty(value = "퀴즈(최대 200)", example = "너랑 사귄 날")
 	@Size(max=200)
 	private String quiz;
 
-	@ApiModelProperty(value = "퀴즈 정답", example = "22.03.21")
+	@ApiModelProperty(value = "퀴즈 정답(최대 50)", example = "22.03.21")
 	@Size(max=50)
 	private String quizAnswer;
 

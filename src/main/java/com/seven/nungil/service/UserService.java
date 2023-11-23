@@ -83,6 +83,7 @@ public class UserService {
                         place.getLatitude(),
                         place.getLongitude(),
                         place.getPlaceName(),
+                        place.getAddress(),
                         place.getPlaceProvider(),
 			    		place.getQuiz() != null))
                 .collect(Collectors.toList());
@@ -98,6 +99,6 @@ public class UserService {
         RecommendedPlace place = placeRepository.findById(placeId)
                 .orElseThrow(()-> new NotFoundException("Place Not Found " + placeId));
         return new PlaceResponse(place.getPlaceId(),place.getLatitude(),place.getLongitude(), place.getPlaceName(),
-            place.getPlaceProvider(), place.getQuiz() != null);
+            place.getAddress(), place.getPlaceProvider(), place.getQuiz() != null);
     }
 }

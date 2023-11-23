@@ -25,6 +25,8 @@ public class RecommendedPlace {
 
     private String placeName;
 
+    private String address;
+
     private String placeProvider;
 
     private String placeDescription;
@@ -38,12 +40,13 @@ public class RecommendedPlace {
 	private String placePasswd;
 
 	@Builder
-	public RecommendedPlace(User user, Float latitude, Float longitude, String placeName, String placeProvider,
+	public RecommendedPlace(User user, Float latitude, Float longitude, String placeName, String address, String placeProvider,
 		String placeDescription, String quiz, String quizHint, String quizAnswer, String placePasswd) {
 		this.user = user;
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.placeName = placeName;
+        this.address = address;
 		this.placeProvider = placeProvider;
 		this.placeDescription = placeDescription;
 		this.quiz = quiz;
