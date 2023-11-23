@@ -6,6 +6,7 @@ import com.seven.nungil.dto.PlaceResponse;
 import com.seven.nungil.dto.QuizResponse;
 import com.seven.nungil.dto.UserRegisterResponse;
 import com.seven.nungil.dto.UserRequestDTO;
+import com.seven.nungil.exception.notfound.NotFoundException;
 import com.seven.nungil.repository.RecommendedPlaceRepository;
 import com.seven.nungil.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +30,7 @@ public class UserService {
      * @return user Id
      */
     @Transactional
-    public UserRegisterResponse userRegister(UserRequestDTO userRequestDTO){
+    public UserRegisterResponse registerUser(UserRequestDTO userRequestDTO){
         User user = User.builder()
                 .userName(userRequestDTO.getUserName())
                 .placeTheme(userRequestDTO.getPlaceTheme())
@@ -50,7 +51,7 @@ public class UserService {
      */
     public Integer getPlaceCount(Long userId){
         User user = userRepository.findById(userId)
-                .orElseThrow(()->new IllegalArgumentException());
+                .orElseThrow(()-> new NotFoundException("User Not Found " + userId));
         return user.getPlaceCount();
     }
 
@@ -62,7 +63,7 @@ public class UserService {
      */
     public QuizResponse getQuiz(Long placeId){
         RecommendedPlace place = placeRepository.findById(placeId)
-                .orElseThrow(()->new IllegalArgumentException());
+                .orElseThrow(()-> new NotFoundException("Place Not Found " + placeId));
         return new QuizResponse(place.getQuiz(),place.getQuizAnswer(),place.getQuizAnswer().length(),place.getQuizHint());
     }
     /**
@@ -73,7 +74,7 @@ public class UserService {
      */
     public List<PlaceResponse> getPlaces(Long userId){
         User user = userRepository.findById(userId)
-                .orElseThrow(()->new IllegalArgumentException());
+                .orElseThrow(()-> new NotFoundException("User Not Found " + userId));
         List<RecommendedPlace> placeList= placeRepository.findRecommendedPlacesByUser(user);
 
         return placeList.stream()
@@ -82,11 +83,12 @@ public class UserService {
                         place.getLatitude(),
                         place.getLongitude(),
                         place.getPlaceName(),
-                        place.getPlaceProvider()))
+                        place.getPlaceProvider(),
+			    		place.getQuiz() != null))
                 .collect(Collectors.toList());
     }
 
-    /**
+    /**x
      *  특정 추천 위치를 반환하는 메서드이다.
      *
      * @param placeId 추천 위치 id
@@ -94,7 +96,8 @@ public class UserService {
      */
     public PlaceResponse getPlace(Long placeId){
         RecommendedPlace place = placeRepository.findById(placeId)
-                .orElseThrow(()->new IllegalArgumentException());
-        return new PlaceResponse(place.getPlaceId(),place.getLatitude(),place.getLongitude(), place.getPlaceName(), place.getPlaceProvider());
+                .orElseThrow(()-> new NotFoundException("Place Not Found " + placeId));
+        return new PlaceResponse(place.getPlaceId(),place.getLatitude(),place.getLongitude(), place.getPlaceName(),
+            place.getPlaceProvider(), place.getQuiz() != null);
     }
 }
