@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -38,11 +39,11 @@ public class PlaceController {
     @DeleteMapping("/cancel")
     @ApiOperation(value = "추천 위치 등록 취소")
     @ApiResponses(value = {
-        @ApiResponse(code = 200, message = "추천 위치 삭제 성공"),
+        @ApiResponse(code = 204, message = "추천 위치 삭제 성공"),
         @ApiResponse(code = 400, message = "추천 위치 삭제 실패")
     })
     public ResponseEntity<Void> cancelRecommendedPlace(@RequestBody @Validated PlaceCancelRequestDTO placeCancelRequestDTO) {
         placeService.cancelRecommendedPlace(placeCancelRequestDTO);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }
