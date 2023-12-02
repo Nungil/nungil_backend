@@ -15,3 +15,14 @@ Reference : https://www.aitimes.com/news/articleView.html?idxno=155558
 눈길은 현재 SNS를 통해 여행을 계획하는 MZ세대에게  지루하고 긴 정보 탐색 과정과 저조한 정보의 신뢰도를 해결해주는 동시에 개인화된 경험을 통해 사용자들에게 더 큰 가치를 제공하는 여행지 추천 공유 서비스입니다. 지금 눈길을 이용하고 "당신을 위한 장소를 선물받으세요!"
 
 ## 발표 자료
+![image](https://github.com/2023-AHEUNGTHON/Team_7/assets/106146847/63297b24-733d-4a53-af2c-de9a8cee3d90)
+![image](https://github.com/2023-AHEUNGTHON/Team_7/assets/106146847/49e42019-9cd2-4c7c-9191-1f6ecc0e0d91)
+![image](https://github.com/2023-AHEUNGTHON/Team_7/assets/106146847/166415eb-49d0-49d6-a4d9-fd6b465ac2db)
+![image](https://github.com/2023-AHEUNGTHON/Team_7/assets/106146847/5fe5100f-0d78-41af-a490-4c3df9fb5e72)
+![image](https://github.com/2023-AHEUNGTHON/Team_7/assets/106146847/33ac54d8-5419-45f5-ab30-6a531c002160)
+![image](https://github.com/2023-AHEUNGTHON/Team_7/assets/106146847/9e819d3a-6c5d-4c65-a87e-db3c0e4dc0d6)
+![image](https://github.com/2023-AHEUNGTHON/Team_7/assets/106146847/afbed983-0792-4f0e-9b18-7bca144b1c53)
+![image](https://github.com/2023-AHEUNGTHON/Team_7/assets/106146847/dcad3c4b-c5ec-429b-947b-f07ccd7be61d)
+![image](https://github.com/2023-AHEUNGTHON/Team_7/assets/106146847/0e27e36a-da2f-48bc-8003-0985b17771e5)
+![image](https://github.com/2023-AHEUNGTHON/Team_7/assets/106146847/233a2d71-7aa4-4bad-bb78-2bb61e6b8e77)
+![image](https://github.com/2023-AHEUNGTHON/Team_7/assets/106146847/814f06a6-b269-4046-953f-293df917c540)
