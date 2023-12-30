@@ -83,13 +83,14 @@ public class UserService {
                         place.getLatitude(),
                         place.getLongitude(),
                         place.getPlaceName(),
+                        place.getPlaceDescription(),
                         place.getAddress(),
                         place.getPlaceProvider(),
 			    		place.getQuiz() != null))
                 .collect(Collectors.toList());
     }
 
-    /**x
+    /**
      *  특정 추천 위치를 반환하는 메서드이다.
      *
      * @param placeId 추천 위치 id
@@ -98,7 +99,9 @@ public class UserService {
     public PlaceResponse getPlace(Long placeId){
         RecommendedPlace place = placeRepository.findById(placeId)
                 .orElseThrow(()-> new NotFoundException("Place Not Found " + placeId));
-        return new PlaceResponse(place.getPlaceId(),place.getLatitude(),place.getLongitude(), place.getPlaceName(),
+        return new PlaceResponse(place.getPlaceId(),place.getLatitude(),place.getLongitude(), place.getPlaceName(), place.getPlaceDescription(),
             place.getAddress(), place.getPlaceProvider(), place.getQuiz() != null);
     }
+
+
 }

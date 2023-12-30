@@ -24,6 +24,9 @@ public class PlaceResponse {
     @ApiModelProperty(value = "장소명", example = "대나무 숲")
     private String placeName;
 
+    @ApiModelProperty(value = "장소 메시지", example = "나뭇잎에 이는 바람 소리가 청명한 곳")
+    private String placeDescription;
+
     @ApiModelProperty(value = "추천 위치 주소(최대 40)", example = "부산 기장군 철마면 웅천리 520-10")
     private String address;
 
@@ -33,7 +36,9 @@ public class PlaceResponse {
     @ApiModelProperty(value = "퀴즈 여부", example = "true")
     private Boolean isQuiz;
 
-    public static PlaceResponse of (Long placeId, Float latitude, Float longitude, String placeName, String address, String placeProvider, Boolean isQuiz) {
-        return new PlaceResponse(placeId, latitude,longitude, placeName, address, placeProvider, isQuiz);
+
+
+    public static PlaceResponse of (Long placeId, Float latitude, Float longitude, String placeName, String placeDescription, String address, String placeProvider, Boolean isQuiz) {
+        return new PlaceResponse(placeId, latitude,longitude, placeName, placeDescription, address, placeProvider, isQuiz);
     }
 }
