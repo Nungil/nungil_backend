@@ -1,9 +1,6 @@
 package com.seven.nungil.controller;
 
-import com.seven.nungil.dto.PlaceResponse;
-import com.seven.nungil.dto.QuizResponse;
-import com.seven.nungil.dto.UserRegisterResponse;
-import com.seven.nungil.dto.UserRequestDTO;
+import com.seven.nungil.dto.*;
 import com.seven.nungil.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -33,15 +30,15 @@ public class UserController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/{userId}/places/count")
-    @ApiOperation(value = "사용자의 추천위치 개수 반환")
+    @GetMapping("/{userId}/places/info")
+    @ApiOperation(value = "사용자 정보와 추천위치 개수 반환")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "추천 위치 개수 반환 성공"),
+            @ApiResponse(code = 200, message = "사용자 정보와 추천 위치 개수 반환 성공"),
             @ApiResponse(code = 404, message = "userId 오류")
     })
-    public ResponseEntity<Integer> getPlaceCount(@PathVariable Long userId) {
-        Integer placeCount = userService.getPlaceCount(userId);
-        return ResponseEntity.ok(placeCount);
+    public ResponseEntity<UserInfoResponse> getPlaceCount(@PathVariable Long userId) {
+        UserInfoResponse response = userService.getPlaceCount(userId);
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/places/{placeId}/quiz")

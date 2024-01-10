@@ -2,10 +2,7 @@ package com.seven.nungil.service;
 
 import com.seven.nungil.domain.RecommendedPlace;
 import com.seven.nungil.domain.User;
-import com.seven.nungil.dto.PlaceResponse;
-import com.seven.nungil.dto.QuizResponse;
-import com.seven.nungil.dto.UserRegisterResponse;
-import com.seven.nungil.dto.UserRequestDTO;
+import com.seven.nungil.dto.*;
 import com.seven.nungil.exception.notfound.NotFoundException;
 import com.seven.nungil.repository.RecommendedPlaceRepository;
 import com.seven.nungil.repository.UserRepository;
@@ -46,13 +43,14 @@ public class UserService {
     /**
      *  추천 위치 개수를 반환하는 메서드이다.
      *
-     * @param userId
-     * @return placeCount 추천 위치 개수
+     * @param userId 사용자 id
+     * @return UserInfoResponse 사용자 정보와 장소 개수
      */
-    public Integer getPlaceCount(Long userId){
+    public UserInfoResponse getPlaceCount(Long userId){
         User user = userRepository.findById(userId)
                 .orElseThrow(()-> new NotFoundException("User Not Found " + userId));
-        return user.getPlaceCount();
+
+        return new UserInfoResponse(user.getUserName(), user.getPlaceTheme(), user.getPlaceCount());
     }
 
     /**
