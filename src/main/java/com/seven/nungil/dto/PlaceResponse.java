@@ -33,12 +33,18 @@ public class PlaceResponse {
     @ApiModelProperty(value = "장소 제공자", example = "유승한")
     private String placeProvider;
 
-    @ApiModelProperty(value = "퀴즈 여부", example = "true")
-    private Boolean isQuiz;
+    @ApiModelProperty(value = "퀴즈", example = "너랑 갔던 빵집")
+    private String quiz;
+
+    @ApiModelProperty(value = "퀴즈 정답", example = "파리바게뜨")
+    private String quizAnswer;
+
+//    @ApiModelProperty(value = "퀴즈 여부", example = "true")
+//    private Boolean isQuiz;
 
 
 
-    public static PlaceResponse of (Long placeId, Float latitude, Float longitude, String placeName, String placeDescription, String address, String placeProvider, Boolean isQuiz) {
-        return new PlaceResponse(placeId, latitude,longitude, placeName, placeDescription, address, placeProvider, isQuiz);
+    public static PlaceResponse of (Long placeId, Float latitude, Float longitude, String placeName, String placeDescription, String address, String placeProvider, String quiz, String quizAnswer) {
+        return new PlaceResponse(placeId, latitude,longitude, placeName, placeDescription, address, placeProvider, quiz, quizAnswer);
     }
 }
